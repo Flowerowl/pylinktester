@@ -3,10 +3,11 @@
 
 import Queue
 
-'''
-为检测线程创建一个队列，同时爬虫线程向此队列添加
-'''
 class urlSync():
+    '''
+    为检测线程创建一个队列，同时爬虫线程向此队列添加
+    '''
+
 	def __init__(self):
 		#链接队列
 		self.urlQue = Queue.Queue()

@@ -5,16 +5,18 @@ import urllib2
 import threading
 import os.path
 import time
-import getRequest
 import socket
+
+import getRequest
 
 global g_mutex
 g_mutex  = threading.Lock()
 
-'''
-真正干活的检测链接函数，设置超时访问次数为三次
-'''
 def testUrls(url, repeat = 3):
+    '''
+    真正干活的检测链接函数，设置超时访问次数为三次
+    '''
+
 	ti = time.strftime('%Y-%m-%d %H:%M:%S ',time.localtime(time.time()))
 	if url is not None:
 		req, opener = getRequest.getRequest(url)
@@ -36,10 +38,11 @@ def testUrls(url, repeat = 3):
 			else:
 				log(str(ex), ti, url)
 
-'''
-记录日志
-'''
+
 def log(error, ti, url):
+    '''
+    记录日志
+    '''
 	path = getLogsPath()
 	print "log-mutex.acquire()..."
 	g_mutex.acquire()
@@ -50,10 +53,11 @@ def log(error, ti, url):
 	g_mutex.release()
 	print "log-mutex.release() OK"
 
-'''
-获取日志路径，若没有则创建
-'''
+
 def getLogsPath():
+    '''
+    获取日志路径，若没有则创建
+    '''
 	path = os.path.dirname(__file__)
 	newpath = '/'.join(path.split('/')[:-1])+'/logs/'
 	if(not os.path.exists(newpath)):

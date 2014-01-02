@@ -1,15 +1,17 @@
-#!/usr/bin/env python   
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import threading
 import sys
 sys.path.insert(0, r'..')
+
 import core.bfs as core
 
-'''
-爬虫线程
-采用广度优先算法
-'''
 class spliderThread(threading.Thread):
+    '''
+    爬虫线程
+    采用广度优先算法
+    '''
+
 	def __init__(self, urlQuence, urlSync, deepth, mutex):
 		threading.Thread.__init__(self)
 		self.setDaemon(True)

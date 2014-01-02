@@ -1,16 +1,18 @@
-#!/usr/bin/env python   
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import spliderThread, testThread
 import time
 import threading
+
+import spliderThread, testThread
 
 global g_mutex
 g_mutex  = threading.Lock()
 
-'''
-线程管理器，初始化爬虫/检测线程，运行完退出
-'''
 class threadController:
+    '''
+    线程管理器，初始化爬虫/检测线程，运行完退出
+    '''
+
 	def __init__(self, threadNumber, urlQuence, urlSync, deepth):
 		self.threadNumber = threadNumber
 		self.urlQuence = urlQuence

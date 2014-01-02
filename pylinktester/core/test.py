@@ -3,12 +3,14 @@
 import sys
 sys.path.insert(0, r'..')
 import threading
+
 import utils.testUrls as utils
 
-'''
-检测链接的调度器
-'''
 def test(urlSync, spliderThreadPool, mutex):
+    '''
+    检测链接的调度器
+    '''
+
     while urlSync.getUnvistedUrlCount() != 0 or spliderIsAlive(spliderThreadPool):
         #print "test-mutex.acquire()..."
         mutex.acquire()
@@ -34,10 +36,11 @@ def test(urlSync, spliderThreadPool, mutex):
         #print "test-2-mutex.release()OK"
         print '剩余链接数量',urlSync.getUnvistedUrlCount()
 
-'''
-判断爬虫是否已死
-'''
 def spliderIsAlive(spliderThreadPool):
+    '''
+    判断爬虫是否已死
+    '''
+
     for st in spliderThreadPool:
         if st.isAlive():
             return True

@@ -1,12 +1,12 @@
-﻿#!/usr/bin/env python   
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 global uv
 
-'''
-爬虫线程的链接保存集合，按层分配，一层一个set()
-'''
 class urlQuence:
+    '''
+    爬虫线程的链接保存集合，按层分配，一层一个set()
+    '''
 
     def __init__(self, deepth):
         #已访问的url集合

@@ -1,14 +1,16 @@
-#!/usr/bin/env python   
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import threading
 import sys
 sys.path.insert(0, r'..')
+
 import core.test as core
 
-'''
-检测线程
-'''
 class testThread(threading.Thread):
+    '''
+    检测线程
+    '''
+
 	def __init__(self, urlSync, spliderThreadPool, mutex):
 		threading.Thread.__init__(self)
 		self.setDaemon(True)
@@ -20,4 +22,3 @@ class testThread(threading.Thread):
 
 	def run(self):
 		core.test(self.urlSync, self.spliderThreadPool, self.mutex)
-		

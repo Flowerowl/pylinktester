@@ -1,14 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import sys
-sys.path.insert(0, r'..')
-import utils.getUrls as utils
 import threading
+sys.path.insert(0, r'..')
 
-'''
-广度优先算法，按层提取/存放链接
-'''
+import utils.getUrls as utils
+
+
 def bfs(urlQuence, urlSync, deepth, mutex):
+    '''
+    广度优先算法，按层提取/存放链接
+    '''
+
     current = urlQuence.getLayerunVisited() #当前未访问的最小层数
     while current is not None and current < deepth+1 :
         #从当前层提取一个未访问链接

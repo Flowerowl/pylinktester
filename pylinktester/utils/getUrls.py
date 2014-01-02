@@ -1,18 +1,20 @@
-#!/usr/bin/env python   
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import urllib2
-from bs4 import BeautifulSoup
-import testUrls
 import sys
+
+from bs4 import BeautifulSoup
+
+import testUrls
 import getRequest
 
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
-'''
-获取当前页所有链接
-'''
 def geturls(url):
+    '''
+    获取当前页所有链接
+    '''
 	source = getsource(url)
 	urlset = set()
 	try:
@@ -27,11 +29,12 @@ def geturls(url):
 			if link.get('href')[:1] == '/':
 				urlset.add('http://m.sohu.com'+link.get('href'))
 	return urlset
-'''
-获取当前网页源码
-'''
+
+
 def getsource(url):
-	
+    '''
+    获取当前网页源码
+    '''
 	req, opener = getRequest.getRequest(url)
 	try:
 		urlopen = opener.open(req, timeout = 10)
