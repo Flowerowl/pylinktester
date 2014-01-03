@@ -6,7 +6,7 @@ import model.urlSync as urlSync
 
 
 if __name__=="__main__":
-	seed = set(["http://m.sohu.com"])	#初始url,算作第一层链接
+	seed = set(["http://lazynight.me"])	#初始url,算作第一层链接
 	threadNumber = 10	#线程数
 	deepth = 5	#设置爬取深度
 	urlQuence = urlQuence.urlQuence(deepth+1)	#初始化deepth个set，存放相应层数未访问链接
