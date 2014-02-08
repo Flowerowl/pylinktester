@@ -11,14 +11,14 @@ class testThread(threading.Thread):
     检测线程
     '''
 
-	def __init__(self, urlSync, spliderThreadPool, mutex):
-		threading.Thread.__init__(self)
-		self.setDaemon(True)
-		#链接队列
-		self.urlSync = urlSync
-		#爬虫线程池，用来检测爬虫是否已死
-		self.spliderThreadPool = spliderThreadPool
-		self.mutex = mutex
+    def __init__(self, urlSync, spliderThreadPool, mutex):
+        threading.Thread.__init__(self)
+        self.setDaemon(True)
+        #链接队列
+        self.urlSync = urlSync
+        #爬虫线程池，用来检测爬虫是否已死
+        self.spliderThreadPool = spliderThreadPool
+        self.mutex = mutex
 
-	def run(self):
-		core.test(self.urlSync, self.spliderThreadPool, self.mutex)
+    def run(self):
+        core.test(self.urlSync, self.spliderThreadPool, self.mutex)
